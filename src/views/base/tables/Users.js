@@ -77,7 +77,6 @@ const Users = () => {
 
   return (
     <>
-      <WidgetsDropdown />
       <CRow>
         <CCol xs>
           <CCard className="mb-4">
@@ -92,6 +91,7 @@ const Users = () => {
                     </CTableHeaderCell>
                     <CTableHeaderCell>Names</CTableHeaderCell>
                     <CTableHeaderCell>Username</CTableHeaderCell>
+                    <CTableHeaderCell>Phone Number</CTableHeaderCell>
                     <CTableHeaderCell>Date Of Account Creation</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
@@ -113,7 +113,13 @@ const Users = () => {
                             style={{ width: 400, textAlign: 'justify' }}
                             className="text-wrap"
                           >
-                            {item.email}
+                            {item.username}
+                          </CTableDataCell>
+                          <CTableDataCell
+                            style={{ width: 400, textAlign: 'justify' }}
+                            className="text-wrap"
+                          >
+                            {item.phone_number}
                           </CTableDataCell>
                           <CTableDataCell
                             style={{ width: 400, textAlign: 'justify' }}
