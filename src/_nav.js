@@ -28,6 +28,18 @@ const _nav = [
     to: '/albums',
     icon: <CIcon icon={cilAlbum} customClassName="nav-icon" />,
   },
+  {
+    component: CNavItem,
+    name: 'Featured Artists',
+    to: '/featured-artists',
+    icon: <CIcon icon={cilAlbum} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Upcoming Events',
+    to: '/upcoming-events',
+    icon: <CIcon icon={cilAlbum} customClassName="nav-icon" />,
+  },
   // {
   //   component: CNavItem,
   //   name: 'Playlists',

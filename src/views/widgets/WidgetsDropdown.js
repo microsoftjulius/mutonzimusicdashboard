@@ -5,10 +5,13 @@ const WidgetsDropdown = () => {
   const [songs, setSongs] = useState(0)
   const [artists, setArtists] = useState(0)
   const [albums, setNumberOfAlbum] = useState(0)
+  const [events, setNumberOfEvents] = useState(0)
+  const [running_events, setNumberOfRunningEvents] = useState(0)
   const [playlists, setNumberOfPlayLists] = useState(0)
   const [mostPlayedSong, setMostPlayedSong] = useState(0)
   const [genres, setGenres] = useState(0)
   const [numberOfUsers, setNumberOfUsers] = useState(0)
+
   useEffect(() => {
     fetch(utils.url + 'statistics', {
       method: 'GET',
@@ -26,6 +29,8 @@ const WidgetsDropdown = () => {
         setMostPlayedSong(json.data.most_played_song.title)
         setGenres(json.data.number_of_genres)
         setNumberOfUsers(json.data.number_of_users)
+        setNumberOfEvents(json.data.number_of_events)
+        setNumberOfRunningEvents(json.data.number_of_running_events)
       })
   }, [])
   return (
@@ -43,15 +48,19 @@ const WidgetsDropdown = () => {
           className="mb-4"
           color="warning"
           value={<>{artists}</>}
-          title="Number Of Artisits"
+          title="Number Of Artists"
         />
       </CCol>
       <CCol sm={6} lg={3}>
         <CWidgetStatsA
           className="mb-4"
           color="success"
-          value={<>{albums}</>}
-          title="Number Of Downloads"
+          value={
+            <>
+              {events} ({running_events})
+            </>
+          }
+          title="Number Of Events (Running)"
         />
       </CCol>
       <CCol sm={6} lg={3}>

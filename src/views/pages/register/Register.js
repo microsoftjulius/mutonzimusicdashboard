@@ -12,14 +12,16 @@ import {
   CRow,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilLockLocked, cilUser } from '@coreui/icons'
+import { cilLockLocked, cilPhone, cilUser } from '@coreui/icons'
 import swal from 'sweetalert'
 import utils from 'src/components/constants/utils'
+import backgroundImage from '../../../assets/images/banner.jpeg' // Replace with the actual path to your image
 
 const Register = () => {
   const [names, setNames] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [personalPhoneNumber, setPersonalPhoneNumber] = useState('')
   const [password_confirm, setPasswordConfirm] = useState('')
 
   function handleSetName(event) {
@@ -27,6 +29,9 @@ const Register = () => {
   }
   function handleSetUserName(event) {
     setUsername(event.target.value)
+  }
+  function handlePersonalPhoneNumber(event) {
+    setPersonalPhoneNumber(event.target.value)
   }
   function handleSetPassword(event) {
     setPassword(event.target.value)
@@ -53,6 +58,7 @@ const Register = () => {
           name: names,
           username: username,
           password: password,
+          personal_phone_number: personalPhoneNumber,
           password_confirmation: password_confirm,
         }),
       })
@@ -74,7 +80,24 @@ const Register = () => {
     }
   }
   return (
-    <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
+    <div
+      className="bg-light min-vh-100 d-flex flex-row align-items-center"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        position: 'relative',
+      }}
+    >
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(128, 0, 128, 0.6)', // Purple color overlay
+        }}
+      ></div>
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md={9} lg={7} xl={6}>
@@ -101,6 +124,16 @@ const Register = () => {
                       placeholder="Username"
                       autoComplete="username"
                       onChange={handleSetUserName}
+                    />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInputGroupText>
+                      <CIcon icon={cilPhone} />
+                    </CInputGroupText>
+                    <CFormInput
+                      placeholder="Personal Phone Number"
+                      autoComplete="phonenumber"
+                      onChange={handlePersonalPhoneNumber}
                     />
                   </CInputGroup>
                   <CInputGroup className="mb-3">

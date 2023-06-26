@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -115,16 +116,25 @@ const Login = () => {
                       />
                     </CInputGroup>
                     <CRow>
-                      <CCol xs={6}>
-                        <CButton color="primary" type="button" className="px-4" onClick={loginUser}>
-                          Login
-                        </CButton>
-                      </CCol>
-                      {/* <CCol xs={6} className="text-right">
-                        <CButton color="link" className="px-0">
-                          Forgot password?
-                        </CButton>
-                      </CCol> */}
+                      <div className="d-flex">
+                        <CCol xs={4}>
+                          <CButton color="primary" type="button" onClick={loginUser}>
+                            Login Now
+                          </CButton>
+                        </CCol>
+                        <CCol xs={4}>
+                          <Link to="/register">
+                            <CButton color="primary" active>
+                              Register Now!
+                            </CButton>
+                          </Link>
+                        </CCol>
+                        {/* <CCol xs={6} className="text-right">
+                          <CButton color="link" className="px-0">
+                            Forgot password?
+                          </CButton>
+                        </CCol> */}
+                      </div>
                     </CRow>
                   </CForm>
                 </CCardBody>
